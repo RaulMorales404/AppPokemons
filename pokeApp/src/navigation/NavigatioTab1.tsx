@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
-import { NavigationTab2} from './NavigationTab2';
+import SplashScreen from 'react-native-splash-screen'
+import { NavigationTab2 } from './NavigationTab2';
 import { Platform } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -20,8 +20,18 @@ const configRoute = {
 
 
 
+
 const Tab = createBottomTabNavigator();
 const NavigatioTab1 = () => {
+    
+    useEffect(() => {
+
+        SplashScreen.hide();
+        return () => {
+
+        }
+    }, [])
+
     return (
         <Tab.Navigator
             sceneContainerStyle={{ backgroundColor: 'white' }}
